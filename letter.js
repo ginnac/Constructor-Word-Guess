@@ -1,4 +1,3 @@
-var inquirer = require('inquirer');
 
 // Letter.js: Contains a constructor, Letter. This constructor should be able to either display an 
 //underlying character or a blank placeholder (such as an underscore), depending on whether or not the user has guessed the letter. 
@@ -40,48 +39,10 @@ this.guessedCorrectly = function(caracterGuessed){
 };
 
 }
-  
-
-
-// Letter.prototype.toString = function() {
-//   var toDisplay = "Letter Guessed is: " + this.guessedLetter;
-//   console.log(toDisplay);
-
-//   if(this.guessedCorrectly) {
-//     return "You Guessed Correctly! " +  this.guessedLetter.toUpperCase();
-//   }
-  
-//   return "You did not guessed correctly";
-// }
-
-
 
 // Letter.js should not require any other files.
 // HINT: Write Letter.js first and test it on its own before moving on, then do the same thing with Word.js
 
-
-
-
-var questions = [
-    {
-      type: 'input',
-      name: 'letter',
-      message: 'Guess a Letter!',
-      default: "",
-    }, ]
-
-inquirer
-  .prompt(questions)
-  .then(answers => {
-    // Use user feedback for... whatever!!
-
-
-    var resultGuessed = new Letter(answers.letter);
-  
-
-
-    console.log(resultGuessed + "");
-  });
 
   // Exporting our Letter constructor. We will require it in word.js
 module.exports = Letter;
