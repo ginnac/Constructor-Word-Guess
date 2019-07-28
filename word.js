@@ -6,15 +6,17 @@ var Letter = require("./letter");
 // This is used to create an object representing the current word the user is attempting to guess. 
 // That means the constructor should define:
 
-var word = function(){
+var Word = function(){
     // An array of new Letter objects representing the letters of the underlying word
     var arrayOfLettersGuessed = []; 
 
-    this.arrayOfLettersGuessed.push(new Letter(gender, name, role))
+    ////this.arrayOfLettersGuessed.push(new Letter())
     // A function that returns a string representing the word. This should call the function on each letter object
     // (the first function defined in Letter.js) that displays the character or an underscore and concatenate those together.
-
     var puzzleWord = function(){
+
+
+        return 
 
     }
 
