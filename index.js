@@ -31,61 +31,71 @@ var randomSongString = new Word(randomSong);
 
     //function to check if letter is correct or not 
 
-    function verifyLetter(){
+    function verifyLetter(toLog){
         //check if letter is correct
-        
+        randomSongString.guess(toLog);
 
         //console.log the word with underscores and letter that have been guessed so far
+        return console.log(randomSongString.displayWord());
+    
     }
 
-    
+
+    //function to get the guesses happening 
+
+    function play(){
+        if (guessesremaining > 0){
+ 
+            //start with prompting
+                var questions = [
+                    {
+                        type: 'input',
+                        name: 'word',
+                        message: 'Guess a Letter!',
+                        default: "",
+                    },]
+            
+                inquirer
+                .prompt(questions)
+                .then(answers => {
+            
+                    //take response from prompting and do this: 
+                    var toLog = answers.word
+
+                    if(guessesremaining = songs.length + 5){
+                         startGame();
+                    }  
+            
+                    verifyLetter(toLog);
+            
+                        // stablish if letter is correct or not...
+            
+            
+            
+                console.log(toLog);
+
+                play();
+              });   
+
+              
+
+    }
+
+}
+
+play()
+
+
+
+
     //function to verify if the user won
 
 // if number of guessesremaining >0  it will keep prompting and giving chance to guess a letter of the same word
 
-if (guessesremaining > 0){
- 
-//start with prompting
-    var questions = [
-        {
-            type: 'input',
-            name: 'word',
-            message: 'Guess a Letter!',
-            default: "",
-        },]
 
-    inquirer
-    .prompt(questions)
-    .then(answers => {
-
-        //take response from prompting and do this: 
-        var toLog = answers.word
-
-        if(guessesremaining = songs.length + 5){
-            startGame();
-        }  
-
-            // stablish if letter is correct or not...
-
-
-
-    console.log(toLog);
-  });   
-
-
-
-    
-    
-
-
-
-
-
-
-}
-
-
-else{}
+// if(guessesremaining = songs.length + 5){
+//     startGame();
+// }  
 
 // Prompts the user for each guess and keeps track of the user's remaining guesses
 
