@@ -1,6 +1,4 @@
 // index.js: The file containing the logic for the course of the game, which depends on Word.js and:
-
-
 var inquirer = require("inquirer");
 var Word = require("./word");
 // Randomly selects a word and uses the Word constructor to store it
@@ -12,7 +10,7 @@ var randomSongIndex = Math.floor(Math.random()*songs.length);
 //getting random song 
 var randomSong = songs[randomSongIndex];
 
-var guessesRemaining =10 ; 
+var guessesRemaining= 10; 
 
 //get the guess from user and pass it to the word object 
 
@@ -44,7 +42,9 @@ var randomSongString = new Word(randomSong);
 
     //function to get the guesses happening 
 
-    function play(){
+var play = function(){
+
+    startGame();
         if (guessesRemaining > 0){
  
             //start with prompting
@@ -63,31 +63,34 @@ var randomSongString = new Word(randomSong);
                     //take response from prompting and do this: 
                     var toLog = answers.word
 
-                    if(guessesRemaining = 10 ){
-                         startGame();
-                    }  
+                    
             
                     verifyLetter(toLog);
 
                     //reduce guesses remaining
                     guessesRemaining--;
                     
-                    console.log(toLog);
-                    console.log(guessesRemaining);
+                    
+                    console.log("Guesses Remaining: " + guessesRemaining + "\n\n");
 
                     
+                    play(); 
 
-
-                play(); 
+               
               });   
 
               
 
     }
 
+    else {
+        console.log("game is over!")
+    }
+
 }
 
 play();
+
 
 
 
