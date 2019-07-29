@@ -12,7 +12,7 @@ var randomSongIndex = Math.floor(Math.random()*songs.length);
 //getting random song 
 var randomSong = songs[randomSongIndex];
 
-var guessesremaining = songs.length + 5; 
+var guessesRemaining =10 ; 
 
 //get the guess from user and pass it to the word object 
 
@@ -29,9 +29,10 @@ var randomSongString = new Word(randomSong);
 //function going to reset the game if remaining guesses is 0 
 
 
-    //function to check if letter is correct or not 
+    //function to check if letter is correct or not...
 
     function verifyLetter(toLog){
+
         //check if letter is correct
         randomSongString.guess(toLog);
 
@@ -44,7 +45,7 @@ var randomSongString = new Word(randomSong);
     //function to get the guesses happening 
 
     function play(){
-        if (guessesremaining > 0){
+        if (guessesRemaining > 0){
  
             //start with prompting
                 var questions = [
@@ -62,19 +63,22 @@ var randomSongString = new Word(randomSong);
                     //take response from prompting and do this: 
                     var toLog = answers.word
 
-                    if(guessesremaining = songs.length + 5){
+                    if(guessesRemaining = 10 ){
                          startGame();
                     }  
             
                     verifyLetter(toLog);
-            
-                        // stablish if letter is correct or not...
-            
-            
-            
-                console.log(toLog);
 
-                play();
+                    //reduce guesses remaining
+                    guessesRemaining--;
+                    
+                    console.log(toLog);
+                    console.log(guessesRemaining);
+
+                    
+
+
+                play(); 
               });   
 
               
@@ -83,7 +87,7 @@ var randomSongString = new Word(randomSong);
 
 }
 
-play()
+play();
 
 
 
