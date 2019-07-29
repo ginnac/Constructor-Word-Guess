@@ -1,7 +1,7 @@
 // Word.js should only require Letter.js
 
 var Letter = require("./letter");
-var inquirer = require("inquirer")
+
 
 // Word.js: Contains a constructor, Word that depends on the Letter constructor. 
 // This is used to create an object representing the current word the user is attempting to guess. 
@@ -27,7 +27,7 @@ var Word = function(selectedWord){
 
         return " " + wordToLog
     }
-}
+
 
 // A function that takes a character as an argument and calls the guess function on each letter object (
 //     the second function defined in Letter.js)
@@ -36,25 +36,7 @@ var Word = function(selectedWord){
       this.lettersOfSelectedWord[i].guessedCorrectly(guessTaken);
     }
   };
+}
 
+module.exports = Word;
 
-var questions = [
-    {
-      type: 'input',
-      name: 'word',
-      message: 'Guess a Letter!',
-      default: "",
-    }, ]
-
-inquirer
-  .prompt(questions)
-  .then(answers => {
-    // Use user feedback for... whatever!!
-
-
-    var resultGuessed = new Word("carros").displayWord();
-  
-
-
-    console.log(resultGuessed + "");
-  });
