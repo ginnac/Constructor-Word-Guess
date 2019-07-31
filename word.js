@@ -25,7 +25,7 @@ var Word = function(selectedWord){
 
         var wordToLog  = this.lettersOfSelectedWord.join(" ");
 
-        return " " + wordToLog
+        return wordToLog;
     }
 
 
