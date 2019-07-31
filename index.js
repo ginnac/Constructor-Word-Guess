@@ -42,6 +42,7 @@ var choseNewWord = false;
             randomSongString = new Word(randomSong);
 
             choseNewWord=false;
+            startGame(randomSongString);
         
          } 
 
@@ -113,7 +114,6 @@ var choseNewWord = false;
 
 var play = function(){
 
-    startGame(randomSongString);
         if (guessesRemaining > 0){
  
             //start with prompting
@@ -148,6 +148,7 @@ var play = function(){
 }
 
 play();
+startGame(randomSongString);
 
 
 var outcomeArray= [];
