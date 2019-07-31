@@ -54,7 +54,7 @@ var playAgain = false;
 
          verifyLetter(toLog,randomSongString);
          
-         console.log("Guesses Remaining: " + guessesRemaining + "\n\n");
+         console.log("Guesses Remaining: " + guessesRemaining + "\n");
 
          winOrLose(randomSong,randomSongString);
 
@@ -64,7 +64,7 @@ var playAgain = false;
 
     //start the game  - to display the underscores of the word, meant to be used when there is a new word.
     function startGame(randomSongString){
-        
+        console.log("(Submit a Letter from the alphabet, no numbers or symbols)");     
         //pass the response and run word to displayWord function it will return the underscors for the selected song: 
         return console.log(randomSongString.displayWord());
     }
@@ -88,7 +88,7 @@ var playAgain = false;
         //conditional to reduce remaining Guesses or not: 
 
         if (preGuess===postGuess){
-            console.log("incorrect Guess");
+            console.log("Incorrect Guess");
             guessesRemaining--;
         }
 
@@ -120,7 +120,7 @@ var play = function(){
                 {
                     type: 'input',
                     name: 'word',
-                    message: 'Guess a Letter!',
+                    message: '\nGuess a Letter!',
                     default: "",
                 },]
             
@@ -156,7 +156,7 @@ var play = function(){
         
     
             if (answers.settings === "EXIT"){
-                console.log("You Selected "+answers.settings + " Bye Bye!");
+                console.log("You Selected "+ answers.settings + " Bye Bye!");
                 
             } 
 
