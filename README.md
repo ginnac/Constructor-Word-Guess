@@ -23,9 +23,8 @@ Technologies applied: Node.js
 *Guesses Remaining: 10*
 
 
-![concert-this](images/concert-this.PNG)
-![do-what-it-says](images/do-what-it-says.PNG)
-![movie-this](images/movie-this-oneargument.PNG)
-![movie-this](images/movie-this.PNG)
-![spotify-this-song](images/spotify-this-song-oneargument.PNG)
-![spotify-this-song](images/spotify-this-song.PNG)
+![General Example](images/constructorWordGuess1.PNG)
+![Winning](images/constructorWordGuess2.PNG)
+![Losing](images/constructorWordGuess3.PNG)
+![playing again](images/constructorWordGuess4.PNG)
+![Exit the game](images/constructorWordGuess5.PNG)
