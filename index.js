@@ -30,10 +30,6 @@ var choseNewWord = false;
         
             //getting random song 
              randomSong = songs[randomSongIndex];
-        
-             console.log("Hola!")
-        
-             console.log(randomSong);
             
             guessesRemaining= 10; 
 
@@ -46,6 +42,8 @@ var choseNewWord = false;
         
          } 
 
+         if(answers!==undefined){
+
          //take response from prompting and do this: 
          var toLog = answers.word
 
@@ -54,6 +52,7 @@ var choseNewWord = false;
          console.log("Guesses Remaining: " + guessesRemaining + "\n\n");
 
          winOrLose(randomSong,randomSongString);
+         }
 
 
             
@@ -114,7 +113,12 @@ var choseNewWord = false;
 
 var play = function(){
 
-        if (guessesRemaining > 0){
+        if(guessesRemaining > 0){
+
+            if(choseNewWord){
+                console.log("You got it! Next Word!");
+                algorithm();
+            }
  
             //start with prompting
                 var questions = [
@@ -159,7 +163,6 @@ var randomSongArray = [];
 
 function winOrLose(randomSong,randomSongString){
 
-    console.log(randomSong);
 
     outcomeArray = [];
 
@@ -186,13 +189,13 @@ function winOrLose(randomSong,randomSongString){
             }
         };
 
-    console.log(outcomeArray.join(""));
-    console.log(randomSongArray.join(""));
-
 
     if (outcomeArray.length > 0 && outcomeArray.join("") === randomSongArray.join("")){
     
         choseNewWord=true;
+
+        
+
 }
 
 }
