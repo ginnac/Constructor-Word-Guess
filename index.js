@@ -18,8 +18,13 @@ var randomSongString = new Word(randomSong);
 
 var choseNewWord = false;
 
+var playAgain = false;
+
 
 // functionality
+
+//algorithm function to choose a new word if it is needed, this same function runs the other 3 functions (StartGame, verifyLetter and WinOrLose)
+//those functions will run if the answers parameter is defined.
     function algorithm(answers){
 
         if (choseNewWord){
@@ -52,24 +57,12 @@ var choseNewWord = false;
          console.log("Guesses Remaining: " + guessesRemaining + "\n\n");
 
          winOrLose(randomSong,randomSongString);
-         }
 
-
-            
+         }        
         }
 
 
-
-    
-
-
-
-
-
-
-
-
-    //start the game...
+    //start the game  - to display the underscores of the word, meant to be used when there is a new word.
     function startGame(randomSongString){
         
         //pass the response and run word to displayWord function it will return the underscors for the selected song: 
@@ -78,7 +71,7 @@ var choseNewWord = false;
 
 
 
-    //function to check if letter is correct or not...
+    //function to check if letter is correct or not - the word constructor is being passed in this function.
 
     function verifyLetter(toLog,randomSongString){
 
@@ -108,45 +101,75 @@ var choseNewWord = false;
     
     }
 
-//function to get the guesses happening 
-//// Prompts the user for each guess and keeps track of the user's remaining guesses
-
+//store guesses from the player, and then prompt responses with the answers stored.
 var play = function(){
 
-        if(guessesRemaining > 0){
+    if(guessesRemaining > 0){
 
-            if(choseNewWord){
+        if(choseNewWord && playAgain === false){
                 console.log("You got it! Next Word!");
                 algorithm();
-            }
+        }
+
+        if(choseNewWord && playAgain){
+                algorithm();
+        }
  
-            //start with prompting
-                var questions = [
-                    {
-                        type: 'input',
-                        name: 'word',
-                        message: 'Guess a Letter!',
-                        default: "",
-                    },]
+        //start with prompting
+            var questions = [
+                {
+                    type: 'input',
+                    name: 'word',
+                    message: 'Guess a Letter!',
+                    default: "",
+                },]
             
                 inquirer
                 .prompt(questions)
                 .then(answers => {
             
-                    algorithm(answers)
+                algorithm(answers);
 
-                    
-                    play(); 
+                play(); 
 
                
               });   
 
-              
-
-    }
+        }
 
     else {
-        console.log("game is over!")
+        //function going to reset the game if remaining guesses is 0 
+        console.log("game is over!");
+
+        var questions = [
+            {
+                type: 'list',
+                name: 'settings',
+                message: 'Choose an option',
+                choices: ["EXIT", "PLAY"],
+            },]
+    
+        inquirer
+        .prompt(questions)
+        .then(answers => {
+
+        
+    
+            if (answers.settings === "EXIT"){
+                console.log("You Selected "+answers.settings + " Bye Bye!");
+                
+            } 
+
+            else{
+                console.log("\n \n---------------------\n \n Let's Play Again!");
+                choseNewWord = true;
+                playAgain = true;
+                guessesRemaining=10;
+                play();
+                
+            }
+      });   
+
     }
 
 }
@@ -159,7 +182,9 @@ var outcomeArray= [];
 
 var randomSongArray = [];
 
-//function to verify if the user won
+
+
+//function to verify if the player won or not...
 
 function winOrLose(randomSong,randomSongString){
 
@@ -189,26 +214,16 @@ function winOrLose(randomSong,randomSongString){
             }
         };
 
-
+    //decide if the player won, changing booleans
     if (outcomeArray.length > 0 && outcomeArray.join("") === randomSongArray.join("")){
     
         choseNewWord=true;
-
-        
-
-}
+        playAgain = false;
+    }
 
 }
 
-//function to delete empty spaces:
 
-
-
-
-
-
-
-//function going to reset the game if remaining guesses is 0 
 
 
 
