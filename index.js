@@ -3,7 +3,7 @@ var inquirer = require("inquirer");
 var Word = require("./word");
 // Randomly selects a word and uses the Word constructor to store it
 
-var songs= ["despacito", "calma", "sin ti" ]
+var songs= ["look alive", "shallow", "shape of you", "unforgettable", "human", "perfect", "feels", "havanna" ]
 
 var randomSongIndex = Math.floor(Math.random()*songs.length);
 
@@ -49,8 +49,12 @@ var playAgain = false;
 
          if(answers!==undefined){
 
+        
+
          //take response from prompting and do this: 
          var toLog = answers.word
+
+         toLog = toLog.toLowerCase();
 
          verifyLetter(toLog,randomSongString);
          
